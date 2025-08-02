@@ -95,7 +95,7 @@ func SelectNodePage(queryName *string, nodeServerId *uint, pageNum *uint, pageSi
 
 	// 分页查询
 	where := map[string]interface{}{
-		"_orderby": "name asc",
+		"_orderby": "priority desc,create_time desc",
 		"_limit":   []uint{(*pageNum - 1) * *pageSize, *pageSize}}
 	if queryName != nil && *queryName != "" {
 		where["name like"] = fmt.Sprintf("%%%s%%", *queryName)
@@ -244,7 +244,7 @@ func SelectNodes() ([]model.Node, error) {
 	var nodes []model.Node
 
 	where := map[string]interface{}{
-		"_orderby": "name asc"}
+		"_orderby": "priority desc,create_time desc"}
 	buildSelect, values, err := builder.BuildSelect("node", where, []string{
 		"id", "node_sub_id", "node_type_id", "name", "domain", "port"})
 	if err != nil {
