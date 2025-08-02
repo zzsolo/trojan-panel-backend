@@ -26,4 +26,4 @@ echo "Redis is up - continuing..."
 
 # 启动应用
 echo "Starting Trojan Panel application..."
-exec ./trojan-panel
+exec ./trojan-panel -host="$host" -port="$port" -user="$user" -password="$password" -redisHost="$redisHost" -redisPort="$redisPort" -redisPassword="$redisPassword" -serverPort="$serverPort"
