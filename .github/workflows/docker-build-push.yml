@@ -1,5 +1,5 @@
 # 工作流的名称
-name: Build and Push Trojan Panel Main to Docker Hub
+name: Build and Push Trojan Panel Backend to Docker Hub
 
 # 触发工作流的事件
 on:
@@ -45,7 +45,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: zzsolo/trojan-panel-main
+          images: zzsolo/trojan-panel-backend
           tags: |
             type=raw,value=latest
           flavor: |
